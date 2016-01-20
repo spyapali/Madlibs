@@ -50,11 +50,15 @@ def show_game_form():
 def show_madlib_form():
     player = request.args.get("person")
     color = request.args.get("color")
-    noun = request.args.get("noun")
+    place = request.args.get("place")
     adjective = request.args.get("adjective")
+    verbs = request.args.getlist("verb")
+    # verbs = [verb.lstrip("u") for verb in verbs]
+    # verbs = "and".join(verbs)
+    # print verbs
 
     return render_template("madlib.html", person =player, color = color,
-                            noun = noun, adjective = adjective)
+                            place = place, adjective = adjective, verb = verbs)
 
 
 
