@@ -53,9 +53,9 @@ def show_madlib_form():
     place = request.args.get("place")
     adjective = request.args.get("adjective")
     verbs = request.args.getlist("verb")
-    # verbs = [verb.lstrip("u") for verb in verbs]
-    # verbs = "and".join(verbs)
-    # print verbs
+    verbs = [verb.lstrip("utf-8") for verb in verbs]
+    verbs = " and ".join(verbs)
+    print verbs
 
     return render_template("madlib.html", person =player, color = color,
                             place = place, adjective = adjective, verb = verbs)
